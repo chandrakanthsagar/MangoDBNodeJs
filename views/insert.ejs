@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+        
+        form {
+            width: 300px;
+            margin: 0 auto;
+        }
+
+   
+        input[type="text"],
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+       
+        submit {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .anchor{
+            color: rgb(156, 198, 131);
+            position: relative;
+           top:10px;
+            left:200px;
+        }
+        .anchor button{
+            padding: 5px;
+            color: #007bff;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        
+        submit:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        function showalert(){
+            alert('Insertion successful!');
+         
+        }
+    </script>
+</head>
+<body style="background-color: blanchedalmond;">
+    <form action="/add" method="post">
+        Student Adhar: <input type="text" name="adhar" placeholder="Enter Adhar Number" required>
+        Name: <input type="text" name="name" placeholder="Enter name" required>
+        Father Name: <input type="text" name="fatherName" placeholder="Enter Father name" required>
+        Emcet Rank: <input type="text" name="emcetRank" placeholder="Emcet Rank">
+        Phone Number: <input type="number" name="phoneNumber" placeholder="Enter Phone Number" required>
+        Address: <input type="text" name="address" placeholder="Enter Address" required>
+        <button type="submit" onclick="showalert()">Add</button>  
+       
+      </form>
+      <a href="/start" class="anchor"> <button>Home</button></a>
+</body>
+</html>

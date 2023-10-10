@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        .main-div {
+            position: relative;
+            top: 150px;
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+      
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        
+        button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        function updateStudent(){
+        const adharNumber = document.querySelector('input[name="adhar"]').value;
+        const updateColumn = document.querySelector('input[name="UpdateColumn"]').value;
+        const updateValue = document.querySelector('input[name="UpdateValued"]').value;
+
+        // Construct the request body as a JSON object
+        const requestBody = {
+            AdharNumber: adharNumber,
+            UpdateColumn: updateColumn,
+            UpdateValue: updateValue
+        };
+
+           console.log("hello");
+            fetch(`/update`,{
+                method:"PUT",
+                headers: { "Content-Type": "application/json" },
+                body:JSON.stringify(requestBody),
+            })
+            .then((res)=>{
+                if(res.ok){
+                    alert('Update successful!');
+                    window.location.reload();
+                }
+                
+            })
+            .catch((err)=>{
+                console.log(err);
+            })
+
+        }
+        
+    </script>
+</head>
+<body style="background-color: antiquewhite;">
+    <div class="main-div">
+        Student AdharNumber :<input type="text" name="adhar" placeholder="Enter the AdharNumber" required>
+        UpdateColumn:<input type="text" name="UpdateColumn" placeholder="Enter the Attribute to update" required>
+        UpdateValued:<input type="text" name="UpdateValued" placeholder="Enter the UpdateValued" required>
+        <button onclick="updateStudent()">Update</button> <a href="/"><button>Home</button></a>
+ 
+    </div>
+    
+</body>
+</html>
